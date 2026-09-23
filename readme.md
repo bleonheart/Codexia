@@ -1,24 +1,25 @@
 <p align="center">
- <img src="./logo.svg" alt="Codexia Logo" width="220" /><br/>
- <strong>Useful Python Scripts</strong><br/>
- A practical collection of automation, analysis, cleanup, documentation, and asset-processing tools for Garry's Mod and GLua development.<br/>
+ <strong>Codexia — GLua & Garry's Mod Developer Toolkit</strong><br/>
+ A practical collection of automation, analysis, cleanup, documentation, and asset-processing tools.<br/>
  Built to remove repetitive maintenance work from large Lua projects and server content pipelines.
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python 3.10+" />
- <a href="https://github.com/bleonheart/Useful-Python-Scripts/stargazers">
-  <img src="https://img.shields.io/github/stars/bleonheart/Useful-Python-Scripts?style=social" alt="GitHub Stars" />
- </a>
+ <img src="./logo.svg" alt="Codexia Logo" width="220" />
 </p>
 
-<h1 align="center">Useful Python Scripts</h1>
+<p align="center">
+ <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white" alt="Python 3.10+" />
+ <a href="https://github.com/bleonheart/Codexia/stargazers">
+  <img src="https://img.shields.io/github/stars/bleonheart/Codexia?style=social" alt="GitHub Stars" />
+ </a>
+</p>
 
 ---
 
 ## Overview
 
-Useful Python Scripts is a toolbox of standalone utilities created around real Garry's Mod, GLua, Lilia, documentation, localization, and content-maintenance workflows.
+Codexia is a toolbox of standalone utilities created around real Garry's Mod, GLua, Lilia, documentation, localization, and content-maintenance workflows.
 
 The repository focuses on small tools that can be used independently instead of requiring one large application or framework.
 
@@ -37,8 +38,8 @@ Typical uses include:
 Clone the repository:
 
 ```bash
-git clone https://github.com/bleonheart/Useful-Python-Scripts.git
-cd Useful-Python-Scripts
+git clone https://github.com/bleonheart/Codexia.git
+cd Codexia
 ```
 
 Most utilities live in the `files` directory and can be executed directly:
@@ -169,7 +170,7 @@ When using cleanup or transformation scripts:
 ## Repository Structure
 
 ```text
-Useful-Python-Scripts/
+Codexia/
 ├── files/
 │   ├── addon_merge_and_split.py
 │   ├── compare_functions.py
