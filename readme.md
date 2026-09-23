@@ -1,7 +1,7 @@
 <p align="center">
  <strong>Useful Python Scripts</strong><br/>
- A collection of developer utilities for Garry's Mod, GLua, Lilia, documentation, localization, asset processing, and code analysis.<br/>
- Built to automate repetitive maintenance tasks and make large Lua projects easier to audit, clean, document, and ship.<br/>
+ A practical collection of automation, analysis, cleanup, documentation, and asset-processing tools for Garry's Mod and GLua development.<br/>
+ Built to remove repetitive maintenance work from large Lua projects and server content pipelines.
 </p>
 
 <p align="center">
@@ -17,21 +17,19 @@
 
 ## Overview
 
-This repository contains standalone Python tools created for day-to-day development and maintenance work around Garry's Mod and GLua projects.
+Useful Python Scripts is a toolbox of standalone utilities created around real Garry's Mod, GLua, Lilia, documentation, localization, and content-maintenance workflows.
 
-The scripts cover:
+The repository focuses on small tools that can be used independently instead of requiring one large application or framework.
 
-- Localization auditing and cleanup
-- Hook discovery and documentation
-- Lua code analysis and cleanup
-- Network string generation
-- Garry's Mod asset inspection
-- Addon merging and splitting
-- Documentation maintenance
-- Function and variable analysis
-- Folder and content organization
+Typical uses include:
 
-Most tools are intentionally independent so you can copy or run only the script you need.
+- Auditing and cleaning GLua code
+- Generating and validating documentation
+- Finding hooks, functions, privileges, and network strings
+- Checking localization coverage
+- Processing Source-engine assets
+- Merging and splitting addon collections
+- Automating repetitive repository maintenance
 
 ## Quick Start
 
@@ -42,146 +40,99 @@ git clone https://github.com/bleonheart/Useful-Python-Scripts.git
 cd Useful-Python-Scripts
 ```
 
-Run a script directly:
+Most utilities live in the `files` directory and can be executed directly:
 
 ```bash
 python files/remove_lua_comments.py <directory>
 ```
 
-Some tools expose command-line arguments while others use configurable paths near the top of the script.
+Some scripts expose command-line arguments while others contain configurable paths or values near the top of the file.
 
-## Requirements
+## Tool Categories
 
-- Python 3.10 or newer
-- Additional packages are only required by specific tools
+### GLua & Code Analysis
 
-Common optional dependencies:
+Utilities for inspecting, comparing, cleaning, and transforming Lua code.
 
-```bash
-python -m pip install srctools humanize
-```
-
-## Tools
-
-### Localization
-
-- `localization_analysis_report.py`  
-  Analyze framework and module language files, report missing or unused localization keys, and optionally clean unused entries.
-
-- `localization_analysis_report_fixed.py`  
-  Extended localization analysis with improved pattern detection and reporting.
-
-- `remove_duplicate_language_keys.py`  
-  Remove duplicate localization entries.
+- `compare_functions.py`
+- `function_comparison_report.py`
+- `find_lia_types.py`
+- `remove_lua_comments.py`
+- `remove_trailing_underscores.py`
+- `replace_unused_vars.py`
+- `strip_sh_prefix.py`
+- `unused_variable_finder.py`
+- `unusedvarfinder_cleaner.py`
+- `unusedvarscleaner.py`
 
 ### Hooks & Documentation
 
-- `hooks_discover_update_docs.py`  
-  Discover hooks in Lua code, compare them with documentation, and update generated hook data.
+Tools for discovering hooks, maintaining generated documentation, and comparing documentation with actual code usage.
 
-- `hooks_doc_usage_report.py`  
-  Compare documented hooks against their real usage in the codebase.
+- `add_extensive_examples.py`
+- `cleanup_docs.py`
+- `fix_hook_names.py`
+- `format_gamemode_hooks.py`
+- `format_gamemode_hooks_v2.py`
+- `hooks_discover_update_docs.py`
+- `hooks_doc_usage_report.py`
+- `missinghooks.py`
 
-- `format_gamemode_hooks.py` / `format_gamemode_hooks_v2.py`  
-  Normalize hook documentation formatting.
+### Localization
 
-- `add_extensive_examples.py`  
-  Add expanded examples to hook documentation.
+Utilities for finding missing, duplicated, or unused language entries.
 
-- `missinghooks.py`  
-  Find hooks that are used in Lua but missing from documentation.
+- `localization_analysis_report.py`
+- `localization_analysis_report_fixed.py`
+- `remove_duplicate_language_keys.py`
 
-- `cleanup_docs.py`  
-  Clean generated module documentation directories.
+### Networking & Framework Utilities
 
-### Networking
+Tools for common Garry's Mod and Lilia development tasks.
 
-- `generate_network_strings.py`  
-  Discover network strings and generate Lua registration code.
+- `generate_network_strings.py`
+- `privilege_report.py`
+- `lua_item_table_builder.py`
+- `convert_panels_format.py`
+- `convert_panels_to_individual_files.py`
 
-### Lua Utilities
+### Asset & Content Processing
 
-- `lua_bundle.py`  
-  Combine Lua files from a directory into a single output file.
+Utilities for Source-engine assets and large addon collections.
 
-- `lua_stack.py`  
-  Stack Lua source files using explicit source and output arguments.
+- `addon_merge_and_split.py`
+- `addon_merge_clean_split.py`
+- `extract_cdmaterials.py`
+- `folder_splitter.py`
+- `gmod_asset_cleaner.py`
 
-- `lua_item_table_builder.py`  
-  Build consolidated item tables from per-file `ITEM.*` definitions.
+### Lua Packaging
 
-- `remove_lua_comments.py`  
-  Remove line and block comments from Lua files.
+Small utilities for combining or reorganizing Lua source trees.
 
-- `strip_sh_prefix.py`  
-  Remove the `sh_` prefix from matching Lua filenames.
+- `lua_bundle.py`
+- `lua_stack.py`
 
-- `remove_trailing_underscores.py`  
-  Clean trailing underscore arguments from Lua definitions and calls.
+### General Cleanup
 
-### Code Analysis
+Additional maintenance tools used across projects.
 
-- `compare_functions.py`  
-  Compare functions and produce documentation-coverage analysis.
+- `remove_asterisks.py`
+- `remove_duplicate_keys.py`
+- `test_at_patterns.py`
 
-- `function_comparison_report.py`  
-  Generate function comparison reports across Lua files.
-
-- `find_lia_types.py`  
-  Discover unique `lia.*` function namespaces used by a gamemode.
-
-- `unused_variable_finder.py`  
-  Run GLuaLint across multiple directories and collect unused-variable results.
-
-- `replace_unused_vars.py`  
-  Replace reported unused variables with underscores.
-
-- `unusedvarscleaner.py`  
-  Batch-process unused-variable reports.
-
-- `unusedvarfinder_cleaner.py`  
-  Lightweight unused-variable finder and cleanup utility.
-
-### Asset Management
-
-- `extract_cdmaterials.py`  
-  Extract `cdmaterials` paths from Source engine model files.
-
-- `gmod_asset_cleaner.py`  
-  Locate and optionally remove unused sounds, images, particles, models, and materials.
-
-- `addon_merge_and_split.py`  
-  Merge addon folders and split the resulting content into deployment-sized packs.
-
-- `addon_merge_clean_split.py`  
-  Merge, clean, report, and split Garry's Mod content in one workflow.
-
-- `folder_splitter.py`  
-  Separate gmpublisher content into Lua and material containers.
-
-- `convert_panels_format.py`  
-  Convert panel configuration data between formats.
-
-### Miscellaneous
-
-- `privilege_report.py`  
-  Compare used privileges against registered privileges.
-
-- `remove_duplicate_keys.py`  
-  Remove duplicate key/value lines while preserving the first occurrence.
-
-## Example
-
-Generate network-string registration code:
-
-```bash
-python files/generate_network_strings.py <lua_root> <output_lua>
-```
+## Example Workflows
 
 Remove Lua comments recursively:
 
 ```bash
 python files/remove_lua_comments.py <directory>
+```
+
+Generate network-string registration code:
+
+```bash
+python files/generate_network_strings.py <lua_root> <output_lua>
 ```
 
 Compare documented and implemented functions:
@@ -190,18 +141,56 @@ Compare documented and implemented functions:
 python files/compare_functions.py <source_dir> <output_dir>
 ```
 
-## Notes
+## Requirements
 
-Many scripts were created for real project-maintenance workflows and may assume a Garry's Mod or Lilia-style directory structure. Review configurable paths and options before running tools that modify files.
+- Python 3.10 or newer
+- Additional dependencies vary by script
 
-For destructive cleanup scripts, use a backup or version-controlled working tree so changes can be reviewed and reverted.
+Some utilities may use optional packages such as:
+
+```bash
+python -m pip install srctools humanize
+```
+
+Review the script before running it to determine whether additional dependencies or project-specific paths are required.
+
+## Safety
+
+Several utilities modify, rename, move, or delete files.
+
+When using cleanup or transformation scripts:
+
+1. Work inside a version-controlled repository or backup
+2. Review configuration and input paths
+3. Run reporting or analysis modes first when available
+4. Inspect the resulting diff before committing changes
+
+## Repository Structure
+
+```text
+Useful-Python-Scripts/
+├── files/
+│   ├── addon_merge_and_split.py
+│   ├── compare_functions.py
+│   ├── generate_network_strings.py
+│   ├── gmod_asset_cleaner.py
+│   ├── remove_lua_comments.py
+│   └── ...
+└── readme.md
+```
 
 ## Contributing
 
-Improvements and additional utilities are welcome.
+Contributions and additional focused utilities are welcome.
 
 1. Fork the repository
 2. Create a feature branch
 3. Add or improve a utility
 4. Test it against representative input
-5. Open a pull request with a clear description of the workflow it supports
+5. Open a pull request describing the workflow and expected behavior
+
+---
+
+<p align="center">
+ <strong>Automate the repetitive work. Keep the project work.</strong>
+</p>
