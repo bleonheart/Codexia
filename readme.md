@@ -1,4 +1,5 @@
 <p align="center">
+ <img src="./logo.svg" alt="Codexia Logo" width="220" /><br/>
  <strong>Useful Python Scripts</strong><br/>
  A practical collection of automation, analysis, cleanup, documentation, and asset-processing tools for Garry's Mod and GLua development.<br/>
  Built to remove repetitive maintenance work from large Lua projects and server content pipelines.
